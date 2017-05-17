@@ -10,5 +10,6 @@ HelloOpenCV.py - load and display a specific image
 # References
 OpenCV Tutorials
 http://docs.opencv.org/master/index.html
+
 OpenCV-Python Tutorials
 http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html
