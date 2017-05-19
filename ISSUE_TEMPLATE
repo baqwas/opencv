@@ -1,0 +1,39 @@
+Please enter information in the applicable fields to the extent practical. Thanks!
+
+----------------------------- Remove above -----------------------------
+
+### Basic Info
+
+#### Hardware
+Hardware:
+Core Version:
+
+### Description
+
+<Problem description>
+
+### IDE Settings
+
+Module:
+
+
+### Sketch
+
+```cpp
+
+#include <Arduino.h>
+
+void setup() {
+
+}
+
+void loop() {
+
+}
+```
+
+### Debug Messages
+
+```
+messages here
+```
