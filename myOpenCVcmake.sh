@@ -1,6 +1,10 @@
+
 #!/bin/bash
 # myOpenCVcmake.sh
 # build cmake for OpenCV deployment
+# baqwas(at)gmail(dot)com
+# 2017-05-17
+# v0.2
 cd ~/opencv-3.2.0/
 mkdir build
 cd build
