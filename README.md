@@ -7,7 +7,7 @@ OpenCV tutorials for Raspberry Pi boards:
 - Raspberry Pi 1 Model B+
 - Raspberry Pi Zero 2
 
-I did deploy from source to Raspberry Pi Zero but alas I no longer have access to that board.
+Alas, access to Raspberry Pi Zero was lost a few years ago.
 
 ## Installation
 
