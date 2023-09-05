@@ -1,3 +1,0 @@
-/home/chowkidar/projects/opencv_tests/displayimage/CMakeFiles/rebuild_cache.dir
-/home/chowkidar/projects/opencv_tests/displayimage/CMakeFiles/edit_cache.dir
-/home/chowkidar/projects/opencv_tests/displayimage/CMakeFiles/DisplayImage.dir
