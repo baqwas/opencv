@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project( BasicImageContainer )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( BasicImageContainer basic_image_container.cpp )
+target_link_libraries( BasicImageContainer ${OpenCV_LIBS} )

@@ -1,0 +1,3 @@
+/home/chowkidar/projects/opencv_tests/cpp/mat/CMakeFiles/rebuild_cache.dir
+/home/chowkidar/projects/opencv_tests/cpp/mat/CMakeFiles/edit_cache.dir
+/home/chowkidar/projects/opencv_tests/cpp/mat/CMakeFiles/BasicImageContainer.dir
