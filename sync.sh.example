@@ -1,0 +1,8 @@
+#!/bin/bash
+# Template for syncing repository to cluster nodes
+TARGET_USER="your_username"
+RSYNC_DESTS=("server1" "server2" "server3")
+
+for node in "${RSYNC_DESTS[@]}"; do
+    rsync -avz --exclude '.git' --exclude 'cmake-build-*' ./ "$TARGET_USER@$node:~/opencv/"
+done

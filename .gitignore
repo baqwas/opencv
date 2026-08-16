@@ -1,0 +1,125 @@
+# ==========================================
+# OS & SYSTEM FILES
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux / General backup files
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+
+# ==========================================
+# IDEs & EDITORS (CLion, PyCharm, Android Studio, VS Code)
+# ==========================================
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+
+
+# ==========================================
+# C++ & CMAKE BUILD ARTIFACTS
+# ==========================================
+# Catch-all for any CMake build profile directories (e.g., cmake-build-debug)
+cmake-build-*/
+build/
+bin/
+lib/
+
+# Object and compiled files
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+
+# Shared libraries and static binaries
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exe
+*.out
+*.app
+
+
+# ==========================================
+# PYTHON ENVIRONMENT & CACHES
+# ==========================================
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution and packaging
+dist/
+build/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments and local secrets
+venv/
+.venv/
+env/
+ENV/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+
+# ==========================================
+# ANDROID & GRADLE BUILD ARTIFACTS
+# ==========================================
+# Gradle configuration and cache
+.gradle/
+.local/
+
+# Local machine specific Android SDK paths (never commit this)
+local.properties
+
+# Native build intermediates (CMake/NDK outputs inside Android projects)
+.externalNativeBuild/
+.cxx/
+captures/
+.navigation/
+
+# Security: Never commit signing keys or keystores
+*.jks
+*.keystore
+*.p12
+
+# Ignore local machine-specific deployment script
+sync.sh
+
+# machine- and environment-specific binaries are of no use to others
+.venv/
+venv/

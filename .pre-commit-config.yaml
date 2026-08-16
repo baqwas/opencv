@@ -1,0 +1,15 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1024'] # Blocks files larger than 1MB from being committed
+  - repo: https://github.com/gitguardian/ggshield
+    rev: v1.28.0
+    hooks:
+      - id: ggshield
+        language_version: python3
+        stages: [commit]
