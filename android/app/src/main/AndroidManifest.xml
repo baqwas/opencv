@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OpenCVLab">
+        <!--
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.OpenCVLab"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+
+        <!-- We added our new CanvasTestActivity and gave it the launcher intent-filter -->
+        <!--
+        <activity
+            android:name=".gettingstarted.CanvasTestActivity"
+            android:label="OpenCV 01-getting-started-canvas"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+        <!--
+        <activity
+            android:name=".gettingstarted.BlendTestActivity"
+            android:label="OpenCV 01-getting-started-blend"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+        <!--
+        <activity
+            android:name=".gettingstarted.GradientTestActivity"
+            android:label="OpenCV 01-getting-started-gradient"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+
+        <activity
+            android:name=".gettingstarted.CameraSnapActivity"
+            android:label="OpenCV 01-getting-started-camera"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        <activity
+            android:name=".gettingstarted.BlendTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.GradientTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.CameraSnapActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.CameraStreamActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.ImreadTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.RoiTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.SplitMergeTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".gettingstarted.VideoWriterTestActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+
+    </application>
+
+</manifest>
