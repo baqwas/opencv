@@ -1,17 +1,40 @@
 # OpenCV Self-Paced Learning Exercises
 
-Welcome to the central workspace for all computer vision development, experimentation, and mastery. This repository serves as a multi-language monorepo designed to explore the full capabilities of OpenCV 5 across native C++, Python prototyping, and mobile Android integrations.
+# OpenCV Android & C++ Lab Monorepository
 
-<p align="center">
-  <a href="https://github.com/baqwas/opencv/actions/workflows/ci.yml">
-    <img src="https://github.com/baqwas/opencv/actions/workflows/ci.yml/badge.svg" alt="CI Status">
-  </a>
-  <img src="https://img.shields.io/badge/OpenCV-5.x-green.svg" alt="OpenCV Version">
-  <img src="https://img.shields.io/badge/C%2B%2B-17-blue.svg" alt="C++ Standard">
-  <img src="https://img.shields.io/badge/python-%3E%3D3.11-blue.svg" alt="Python Version">
-  <img src="https://img.shields.io/badge/platform-Linux%20%7C%20Android-lightgrey.svg" alt="Platforms">
-</p>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Language: C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://isocpp.org/)
+[![Language: Java](https://img.shields.io/badge/Java-Android-orange.svg)](https://www.java.com/)
+[![Platform: Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
+[![OpenCV: 4.x](https://img.shields.io/badge/OpenCV-4.x-red.svg)](https://opencv.org/)
+[![Build: Passing](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](https://github.com/baqwas/opencv)
+[![Security: ggshield](https://img.shields.io/badge/Security-ggshield-blueviolet.svg)](https://gitguardian.com/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/baqwas/opencv)](https://github.com/baqwas/opencv/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/baqwas/opencv)](https://github.com/baqwas/opencv/issues)
+[![GitHub stars](https://img.shields.io/github/stars/baqwas/opencv?style=social)](https://github.com/baqwas/opencv/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/baqwas/opencv?style=social)](https://github.com/baqwas/opencv/network/members)
 
+---
+
+## Introduction
+
+Welcome to the **OpenCV Android & C++ Lab** monorepository! This project serves as an experimental sandbox and modular learning toolkit designed for exploring computer vision, image processing, and hardware sensor integration. Built with cross-platform portability in mind, the codebase bridges low-level C++ core logic with high-level Android application modules—featuring robust implementations for direct pixel manipulation (RGB/BGR gradients), alpha blending, geometric region-of-interest (ROI) filtering, split-and-merge channels, and real-time hardware camera ingestion using native GStreamer and `libcamera` pipelines.
+
+Whether you are testing standalone algorithms or deploying accelerated video pipelines to mobile and embedded systems, this repository provides clean, well-structured examples to accelerate your computer vision development.
+
+---
+
+## Repository Structure
+
+- `android/` - Android Studio project containing modular getting-started activities (`BlendTestActivity`, `CameraSnapActivity`, `CameraStreamActivity`, etc.).
+- `native/` - Native C++ test harnesses and low-level processing modules.
+- `etc/` - License documentation and configuration files.
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/baqwas/opencv.git](https://github.com/baqwas/opencv.git)
 ## 🎯 Repository Intent
 
 The primary goal of this repository is twofold:

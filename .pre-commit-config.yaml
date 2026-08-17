@@ -13,3 +13,4 @@ repos:
       - id: ggshield
         language_version: python3
         stages: [pre-commit]
+        pass_env: [gg_pat_9ZK7vzASumoxslL2EnpJdyT8b5bUVSLGh5FsejMJZUKEvuY]
