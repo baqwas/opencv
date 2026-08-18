@@ -24,7 +24,10 @@ project(opencv_learning CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(OpenCV 5 REQUIRED)
+find_package(OpenCV 5 QUIET)
+if(NOT OpenCV_FOUND)
+    find_package(OpenCV 4 REQUIRED)
+endif()
 
 # -----------------------------------------------------------------------------
 # Targets in 01-getting-started/
