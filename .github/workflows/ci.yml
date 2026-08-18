@@ -7,7 +7,7 @@ on:
     branches: [ "main", "master", "5.x" ]
 
 jobs:
-  build-cpp-exercises:
+  build-cpp:
     name: Build C++ Exercises
     runs-on: ubuntu-latest
 
@@ -31,7 +31,7 @@ jobs:
           cd cpp/build
           cmake --build . --parallel $(nproc)
 
-  check-python-syntax:
+  check-python:
     name: Check Python Syntax
     runs-on: ubuntu-latest
 
@@ -52,3 +52,31 @@ jobs:
       - name: Validate Python Code Syntax
         run: |
           python -m compileall python/
+
+  build-android:
+    name: Build Android Module
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x android/gradlew || true
+
+      - name: Build Android Project (Debug)
+        run: |
+          cd android
+          # If a root wrapper exists, build the project; otherwise run gradle task directly
+          if [ -f "gradlew" ]; then
+            ./gradlew assembleDebug
+          else
+            gradle assembleDebug
+          fi
