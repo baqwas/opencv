@@ -67,7 +67,7 @@ int main() {
     cv::imwrite("output_hsv.png", hsv);
 
     // 3. LAB Conversion (CIELAB Uniform Color Space)
-    cv::cvtColor(src, lab, cv::COLOR_BGR2LAB);
+    cv::cvtColor(src, lab, cv::COLOR_BGR2Lab);
     cv::imwrite("output_lab.png", lab);
 
     std::cout << "[" << ex_prefix << "] ✅ Color space transformations completed successfully across Gray, HSV, and LAB channels.\n";
