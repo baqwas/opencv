@@ -26,7 +26,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find OpenCV package installed on your system
-find_package(OpenCV 5 REQUIRED)
+# find_package(OpenCV 5 REQUIRED)
+find_package(OpenCV 5 QUIET)
+if(NOT OpenCV_FOUND)
+    find_package(OpenCV 4 REQUIRED)
+endif()
 
 message(STATUS "OpenCV Configuration Status:")
 message(STATUS "    Version      : ${OpenCV_VERSION}")
