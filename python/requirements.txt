@@ -1,0 +1,12 @@
+# ==============================================================================
+# File:             python/requirements.txt
+# Description:      Python dependencies for OpenCV sub-project exercises and scripts.
+# ==============================================================================
+
+# Core Computer Vision & Numerical Computing
+numpy>=1.26.0
+opencv-python>=4.8.0
+
+# Testing & Quality Assurance
+pytest>=7.4.0
+flake8>=6.0.0
