@@ -2,19 +2,11 @@
 # File:             .pre-commit-config.yaml
 # Description:      Enterprise-grade pre-commit hooks configuration for the
 #                   OpenCV monorepo. Enforces code formatting, YAML validity,
-#                   file size limits, and automated secret scanning via ggshield.
+#                   and file size limits.
 # Architect:        Matha Goram
 # ==============================================================================
 
-# Global configuration: Allowlist local shell environment variables
-# to pass through pre-commit's isolated execution environments.
-pass_env:
-  - GITGUARDIAN_API_KEY
-
 repos:
-  # --------------------------------------------------------------------------
-  # Standard Pre-Commit Code Formatting & Safety Hooks
-  # --------------------------------------------------------------------------
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
@@ -27,14 +19,3 @@ repos:
       - id: check-added-large-files
         name: Check for Large Files
         args: ['--maxkb=1024'] # Explicitly blocks files larger than 1MB from being committed
-
-  # --------------------------------------------------------------------------
-  # Secret Leak Prevention Hook
-  # --------------------------------------------------------------------------
-  - repo: https://github.com/gitguardian/ggshield
-    rev: v1.53.0
-    hooks:
-      - id: ggshield
-        name: GitGuardian Secret Scan
-        language_version: python3
-        stages: [pre-commit]

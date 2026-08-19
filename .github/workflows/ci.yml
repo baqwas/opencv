@@ -1,33 +1,34 @@
 # ==============================================================================
 # File:             .github/workflows/ci.yml
 # Workflow:         OpenCV Monorepo CI
-# Version:          2.0.0
+# Version:          2.1.0
 # Architect:        Matha Goram
 # Description:      Enterprise-grade CI pipeline featuring ccache acceleration,
 #                   multi-version Python test matrices, automated lint gates,
-#                   artifact persistence, and security scanning across the
-#                   OpenCV monorepo architecture[cite: 1, 2].
+#                   artifact persistence, and server-side security scanning
+#                   across the OpenCV monorepo architecture[cite: 3].
 #
 # Update History:
 # ------------------------------------------------------------------------------
 # Version | Date       | Author           | Modification Description
 # --------|------------|------------------|-------------------------------------
-# 1.0.0   | 2026-08-18 | Initial Commit   | Baseline multi-environment builds.
-# 1.1.0   | 2026-08-19 | Matha Goram      | Hardened apt mirrors, implemented
-#         |            |                  | step timeouts, added concurrency,
-#         |            |                  | pip caching, and minimum permissions.
-# 1.2.0   | 2026-08-19 | Matha Goram      | Added cache-dependency-path for pip
-#         |            |                  | setup; expanded apt timeout to 10m.
-# 1.3.0   | 2026-08-19 | Matha Goram      | Fixed step ordering in check-python job.
-# 1.4.0   | 2026-08-19 | Matha Goram      | Removed strict pip caching to bypass path misses.
-# 1.5.0   | 2026-08-19 | Matha Goram      | Re-enabled pip caching via requirements.txt,
-#         |            |                  | upgraded setup-java to v5, and annotated
-#         |            |                  | monorepo structure in docstrings.
-# 2.0.0   | 2026-08-19 | Matha Goram      | Applied stepwise refinement: added
-#         |            |                  | ccache, Python test matrix, pre-commit
-#         |            |                  | lint checks, artifact uploads, and security scan.
+# 1.0.0   | 2026-08-18 | Initial Commit   | Baseline multi-environment builds[cite: 3].
+# 1.1.0   | 2026-08-19 | Matha Goram      | Hardened apt mirrors, implemented[cite: 3]
+#         |            |                  | step timeouts, added concurrency,[cite: 3]
+#         |            |                  | pip caching, and minimum permissions[cite: 3].
+# 1.2.0   | 2026-08-19 | Matha Goram      | Added cache-dependency-path for pip[cite: 3]
+#         |            |                  | setup; expanded apt timeout to 10m[cite: 3].
+# 1.3.0   | 2026-08-19 | Matha Goram      | Fixed step ordering in check-python job[cite: 3].
+# 1.4.0   | 2026-08-19 | Matha Goram      | Removed strict pip caching to bypass path misses[cite: 3].
+# 1.5.0   | 2026-08-19 | Matha Goram      | Re-enabled pip caching via requirements.txt,[cite: 3]
+#         |            |                  | upgraded setup-java to v5, and annotated[cite: 3]
+#         |            |                  | monorepo structure in docstrings[cite: 3].
+# 2.0.0   | 2026-08-19 | Matha Goram      | Applied stepwise refinement: added[cite: 3]
+#         |            |                  | ccache, Python test matrix, pre-commit[cite: 3]
+#         |            |                  | lint checks, artifact uploads, and security scan[cite: 3].
+# 2.1.0   | 2026-08-19 | Matha Goram      | Migrated secret scanning to a dedicated server-side
+#         |            |                  | GitHub Actions job utilizing repository secrets.
 # ==============================================================================
-# Test workflow on: $(date)
 
 name: OpenCV Monorepo CI
 
@@ -154,6 +155,26 @@ jobs:
 
       - name: Run Pre-commit Hooks Across Repository
         run: pre-commit run --all-files
+
+  # --------------------------------------------------------------------------
+  # Phase 2: Automated Security Secret Scanning via GitGuardian
+  # --------------------------------------------------------------------------
+  security-scan:
+    name: GitGuardian Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for ggshield to scan full commit history
+
+      - name: Run ggshield Secret Scan
+        uses: GitGuardian/ggshield-action@v1.28.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 
   # --------------------------------------------------------------------------
   # Phase 1 & 3: Android Build with Enhanced Caching & Artifact Export
