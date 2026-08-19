@@ -27,6 +27,7 @@
 #         |            |                  | ccache, Python test matrix, pre-commit
 #         |            |                  | lint checks, artifact uploads, and security scan.
 # ==============================================================================
+# Test workflow trigger: $(date)
 
 name: OpenCV Monorepo CI
 
