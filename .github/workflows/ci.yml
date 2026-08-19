@@ -1,7 +1,7 @@
 # ==============================================================================
 # File:             .github/workflows/ci.yml
 # Workflow:         OpenCV Monorepo CI
-# Version:          1.2.0
+# Version:          1.3.0
 # Architect:        A Reza M Wajih
 # Description:      Continuous Integration pipeline for compiling C++ artifacts,
 #                   validating Python modules, and building Android binaries.
@@ -16,6 +16,8 @@
 #         |            |                  | pip caching, and minimum permissions.
 # 1.2.0   | 2026-08-19 | Matha Goram      | Added cache-dependency-path for pip
 #         |            |                  | setup; expanded apt timeout to 10m.
+# 1.3.0   | 2026-08-19 | Matha Goram      | Fixed step ordering in check-python job
+#         |            |                  | by moving checkout before setup-python.
 # ==============================================================================
 
 name: OpenCV Monorepo CI
@@ -70,6 +72,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
+      # Checkout moved to the top so repository files exist before python setup runs
       - name: Checkout Repository
         uses: actions/checkout@v4
 
