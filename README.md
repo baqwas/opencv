@@ -1,6 +1,6 @@
 # OpenCV Self-Paced Learning Exercises
 
-# OpenCV Android, C++ & Python Lab Monorepository
+## OpenCV Android, C++ & Python Lab Monorepository
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -20,8 +20,9 @@
 
 **Target Hardware:**
 [![Hardware: Raspberry Pi](https://img.shields.io/badge/Hardware-Raspberry_Pi-C51A4A.svg)](https://www.raspberrypi.com/)
-[![Hardware: NVIDIA Jetson](https://img.shields.io/badge/Hardware-NVIDIA_Jetson_Orin-76B900.svg)](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/)
 [![Hardware: Intel Core Ultra](https://img.shields.io/badge/Hardware-Intel_Core_Ultra-0071C5.svg)](https://www.intel.com/content/www/us/en/products/details/processors/core-ultra.html)
+[![Hardware: NVIDIA Jetson](https://img.shields.io/badge/Hardware-NVIDIA_Jetson_Orin-76B900.svg)](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/)
+[![GPU: NVIDIA Ampere)](https://img.shields.io/badge/GPU-NVIDIA_Ampere_%28GA10B%29-76B900.svg)](https://www.nvidia.com/)
 
 **Security**
 [![Security: ggshield](https://img.shields.io/badge/Security-ggshield-blueviolet.svg)](https://gitguardian.com/)

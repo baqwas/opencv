@@ -8,9 +8,10 @@ repos:
       - id: check-added-large-files
         args: ['--maxkb=1024'] # Blocks files larger than 1MB from being committed
   - repo: https://github.com/gitguardian/ggshield
-    rev: v1.28.0
+    rev: v1.53.0
     hooks:
       - id: ggshield
         language_version: python3
         stages: [pre-commit]
-        pass_env: [gg_pat_9ZK7vzASumoxslL2EnpJdyT8b5bUVSLGh5FsejMJZUKEvuY]
+        pass_env:
+          - GITGUARDIAN_API_KEY

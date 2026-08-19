@@ -1,3 +1,21 @@
+# ==============================================================================
+# File:             .github/workflows/ci.yml
+# Workflow:         OpenCV Monorepo CI
+# Version:          1.1.0
+# Architect:        Matha Goram
+# Description:      Continuous Integration pipeline for compiling C++ artifacts,
+#                   validating Python modules, and building Android binaries.
+#
+# Update History:
+# ------------------------------------------------------------------------------
+# Version | Date       | Author           | Modification Description
+# --------|------------|------------------|-------------------------------------
+# 1.0.0   | 2026-08-18 | Initial Commit   | Baseline multi-environment builds.
+# 1.1.0   | 2026-08-19 | Matha Goram      | Hardened apt mirrors, implemented
+#         |            |                  | step timeouts, added concurrency,
+#         |            |                  | pip caching, and minimum permissions.
+# ==============================================================================
+
 name: OpenCV Monorepo CI
 
 on:
@@ -6,19 +24,33 @@ on:
   pull_request:
     branches: [ "main", "master", "5.x" ]
 
+# BEST PRACTICE: Cancel redundant in-progress runs on PRs to save compute time.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# BEST PRACTICE: Principle of Least Privilege. Only grant read access to the repo.
+permissions:
+  contents: read
+
 jobs:
   build-cpp:
     name: Build C++ Exercises
     runs-on: ubuntu-latest
+    # BEST PRACTICE: Prevent runaway jobs at the job level.
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Build Tools and OpenCV
+      - name: Fix apt mirrors, update, and install tools
+        # Replaces potentially failing Azure mirrors with the primary Ubuntu archive
         run: |
+          sudo sed -i 's/azure.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
           sudo apt-get update
           sudo apt-get install -y build-essential cmake libopencv-dev
+        timeout-minutes: 5
 
       - name: Configure CMake for C++ Exercises
         run: |
@@ -30,10 +62,12 @@ jobs:
         run: |
           cd cpp/build
           cmake --build . --parallel $(nproc)
+        timeout-minutes: 20
 
   check-python:
     name: Check Python Syntax
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout Repository
@@ -43,11 +77,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '>=3.11'
+          # BEST PRACTICE: Enable dependency caching to speed up subsequent runs
+          cache: 'pip'
 
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f python/requirements.txt ]; then pip install -r python/requirements.txt; fi
+        timeout-minutes: 5
 
       - name: Validate Python Code Syntax
         run: |
@@ -56,6 +93,7 @@ jobs:
   build-android:
     name: Build Android Module
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout Repository
@@ -74,9 +112,9 @@ jobs:
       - name: Build Android Project (Debug)
         run: |
           cd android
-          # If a root wrapper exists, build the project; otherwise run gradle task directly
           if [ -f "gradlew" ]; then
             ./gradlew assembleDebug
           else
             gradle assembleDebug
           fi
+        timeout-minutes: 30
